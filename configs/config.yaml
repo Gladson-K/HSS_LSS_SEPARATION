@@ -1,0 +1,39 @@
+# Configuration for Heart-Lung Sound Separation NAS
+
+project:
+  name: "HeartLungSound_NAS_Separation"
+  description: "NAS-based Heart and Lung sound separation"
+
+data:
+  data_dir: "../Data Sets"
+  sample_rate: 8000
+  batch_size: 32
+
+preprocessing:
+  use_kaiser_filter: true
+  use_wavelet: true
+  use_rls: true
+  hss_band: [20, 200]
+  lss_cutoff: 150
+
+nas:
+  approach1:
+    name: "raw_audio_wav_input"
+    search_epochs: 50
+    search_method: "DARTS"
+  approach2:
+    name: "feature_based_audio_pipeline"
+    search_epochs: 50
+    search_method: "DARTS"
+    use_audio_pipeline_baseline: true
+
+training:
+  train_on_full_dataset: true
+  epochs: 100
+  learning_rate: 0.001
+  optimizer: "adam"
+
+stm32:
+  target: "STM32F4"
+  sample_rate: 8000
+  buffer_size: 1024
