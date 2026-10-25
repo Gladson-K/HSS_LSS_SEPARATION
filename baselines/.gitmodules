@@ -1,0 +1,3 @@
+[submodule "audio_pipeline"]
+	path = audio_pipeline
+	url = https://github.com/Gladson-K/audio-pipeline-baseline.git
