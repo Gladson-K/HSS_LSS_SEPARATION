@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Backend: run",
+      "type": "shell",
+      "command": "uvicorn app.main:app --reload --port 8000",
+      "options": { "cwd": "${workspaceFolder}/platform/backend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Backend: test",
+      "type": "shell",
+      "command": "python -m pytest -q",
+      "options": { "cwd": "${workspaceFolder}/platform/backend" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Frontend: dev",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": { "cwd": "${workspaceFolder}/platform/frontend" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Full stack: docker compose up",
+      "type": "shell",
+      "command": "docker compose up --build",
+      "options": { "cwd": "${workspaceFolder}/platform" },
+      "problemMatcher": []
+    }
+  ]
+}
