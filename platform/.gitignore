@@ -7,3 +7,7 @@ build/
 .venv/
 *.egg-info/
 .env
+package-lock.json
+tsconfig.tsbuildinfo
+tsconfig*.tsbuildinfo
+*.tsbuildinfo
