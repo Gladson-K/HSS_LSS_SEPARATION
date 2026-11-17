@@ -1,0 +1,3 @@
+# Optional heavy ML dependencies for foundation-model fine-tuning.
+# Install only when you have a machine/GPU that can handle them.
+pip install torch torchaudio transformers audiotimm soundfile librosa
