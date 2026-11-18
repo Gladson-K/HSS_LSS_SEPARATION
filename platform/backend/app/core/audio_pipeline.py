@@ -145,7 +145,10 @@ def band_energy(x: np.ndarray, sr: int, low: float, high: float) -> float:
         return 0.0
     f, pxx = sig.welch(x, fs=sr, nperseg=min(1024, len(x)))
     mask = (f >= low) & (f <= high)
-    return float(np.trapz(pxx[mask], f[mask])) if mask.any() else 0.0
+    if not mask.any():
+        return 0.0
+    integrate = getattr(np, "trapezoid", None) or getattr(np, "trapz")
+    return float(integrate(pxx[mask], f[mask]))
 
 
 def snr_db(signal: np.ndarray, noise: np.ndarray) -> float:
