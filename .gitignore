@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+npm-debug.log*
+
+# Model weights / datasets
+models/finetuned_*/
+*.pt
+*.pth
+*.onnx
+*.h5
+*.bin
+
+# Env & OS
+.env
+.DS_Store
+Thumbs.db
+
+# Training outputs (keep JSON + png results)
+experiments/real_results/*.log
